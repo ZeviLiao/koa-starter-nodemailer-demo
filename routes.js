@@ -10,6 +10,7 @@ const router = new Router();
 
 const main = require("./controllers/main.js");
 const account = require("./controllers/account.js");
+const mailService = require("./controllers/mailService.js");
 
 // routes
 
@@ -48,6 +49,11 @@ router.get("/auth/auth0/callback",
 		failureRedirect: "/"
 	})
 );
+
+router.get("/zmail",
+	mailService.zmail
+);
+
 
 app.use(router.routes());
 app.use(router.allowedMethods());
